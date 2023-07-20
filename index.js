@@ -6,7 +6,7 @@ const db = process.env.MONGO_URI;
 
 const app = express();
 
-const Answer = new Schema({
+const answerSchema = new mongoose.Schema({
   q_1: {
     type: String,
     required: true,
@@ -47,6 +47,10 @@ const Answer = new Schema({
     type: String,
     required: true,
   },
+  q_11: {
+    type: String,
+    required: true,
+  },
   optin: {
     type: String,
     required: true,
@@ -55,6 +59,8 @@ const Answer = new Schema({
     type: String,
   },
 });
+
+const Answer = mongoose.model("Answer", answerSchema);
 
 const connectDB = async () => {
   try {
@@ -74,8 +80,21 @@ app.get("/", (req, res) => {
 });
 app.post("/questionnaire", async (req, res) => {
   console.log(req.body);
-  const { q_1, q_2, q_3, q_4, q_5, q_6, q_7, q_8, q_9, q_10, optin, email } =
-    req.body;
+  const {
+    q_1,
+    q_2,
+    q_3,
+    q_4,
+    q_5,
+    q_6,
+    q_7,
+    q_8,
+    q_9,
+    q_10,
+    q_11,
+    optin,
+    email,
+  } = req.body;
   try {
     let answer = new Answer({
       q_1: q_1.length === 1 ? q_1[0] : q_1.join(", "),
@@ -87,7 +106,8 @@ app.post("/questionnaire", async (req, res) => {
       q_7: q_7.length === 1 ? q_7[0] : q_7.join(", "),
       q_8: q_8.length === 1 ? q_8[0] : q_8.join(", "),
       q_9: q_9.length === 1 ? q_9[0] : q_9.join(", "),
-      q_10,
+      q_10: q_10.length === 1 ? q_10[0] : q_10.join(", "),
+      q_11,
       optin: optin.length === 1 ? optin[0] : optin.join(", "),
       email,
     });
