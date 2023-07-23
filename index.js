@@ -76,7 +76,7 @@ connectDB();
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Hello");
+  res.send({ name: "Hello", age: 19 });
 });
 
 app.get("/test", (req, res) => {
