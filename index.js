@@ -82,7 +82,9 @@ app.get("/", (req, res) => {
 app.get("/test", (req, res) => {
   res.send({ name: "lewis", age: 12 });
 });
-
+app.get("/hello", (req, res) => {
+  res.send({ name: "hello", age: 19 });
+});
 app.post("/questionnaire", async (req, res) => {
   console.log(req.body);
   const {
