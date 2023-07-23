@@ -79,6 +79,7 @@ app.use((req, res, next) => {
     "Access-Control-Allow-Origin",
     "https://vitalandmiranda.vercel.app"
   );
+  res.setHeader("host", "https://vitalandmiranda.vercel.app");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
