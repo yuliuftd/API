@@ -88,6 +88,11 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => {
   res.send("Hello");
 });
+
+app.get("/test", (req, res) => {
+  res.send({ name: "lewis", age: 12 });
+});
+
 app.post("/questionnaire", async (req, res) => {
   console.log(req.body);
   const {
