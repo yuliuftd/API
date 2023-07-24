@@ -75,20 +75,20 @@ connectDB();
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get("/api/", (req, res) => {
   res.send({ name: "Hello", age: 19 });
 });
 
-app.get("/test", (req, res) => {
+app.get("/api/test", (req, res) => {
   res.send({ name: "lewis", age: 12 });
 });
-app.get("/hello", (req, res) => {
+app.get("/api/hello", (req, res) => {
   res.send({ name: "hello", age: 19 });
 });
-app.post("/comment", (req, res) => {
+app.post("/api/comment", (req, res) => {
   res.send({ id: "313131", content: "jskdkad" });
 });
-app.post("/questionnaire", async (req, res) => {
+app.post("/api/questionnaire", async (req, res) => {
   console.log(req.body);
   const {
     q_1,
