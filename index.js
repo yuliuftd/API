@@ -75,6 +75,7 @@ connectDB();
 app.use(express.json());
 
 app.get("/api/", (req, res) => {
+  console.log("api called");
   res.send({ name: "Hello", age: 19 });
 });
 
