@@ -57,6 +57,10 @@ const answerSchema = new mongoose.Schema({
   email: {
     type: String,
   },
+  createdOn: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const Answer = mongoose.model("Answer", answerSchema);
