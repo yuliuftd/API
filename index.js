@@ -85,7 +85,8 @@ app.get("/api/test", (req, res) => {
 app.get("/api/hello", (req, res) => {
   res.send({ name: "hello", age: 19 });
 });
-app.post("/api/comment", (req, res) => {
+app.get("/api/comment", (req, res) => {
+  console.log(req.body);
   res.send({ id: "313131", content: "jskdkad" });
 });
 app.post("/api/questionnaire", async (req, res) => {
